@@ -1,0 +1,101 @@
+<!DOCTYPE htlm>
+<html lang="es">
+<head>   
+ <meta charset="utf-8">   
+ <title> Calificanos </title>  
+ <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
+ <link rel="stylesheet" href="estil.css">
+ <link href="https://file.myfontastic.com/RfLGEqY9FFJQmyPUuq9Jpj/icons.css" rel="stylesheet">
+</head>
+<body>
+    <img src="http://www.alianzaestadistica.com/uploads/6/8/7/8/68780687/satisfaccion-6.jpg?390" width="1500" height="500"/ alt="" > 
+    <body bgcolor="#FFE4E1">
+         </body>
+   </body>
+    <center>
+ <h1 class="logo">Encuesta del dia</h1>
+</center>
+    
+<script>
+var reply = prompt("¿cuál es tu nombre?", "")
+alert ( "Vamos a comenzar la encuesta " + reply + "!")
+</script>
+
+    <style>
+	#error {color:Red}
+	#resultado {color:Grey}
+	</style>
+ 
+<body>
+  
+<form>
+    <div>
+        Pregunta 1: ¿Te gustaría que creáramos una aplicación para tu empresa? <input type="radio" name="p1" value="0"> Si <input type="radio" name="p1" value="1"> No
+    </div>
+    <div>
+        Pregunta 2: ¿Nos recomendarías a tus conocidos? <input type="radio" name="p2" value="0"> Si <input type="radio" name="p2" value="1"> No
+    </div>
+
+    <div>
+        <div id="error"></div>
+    </div>
+    <div>
+        <p><input type="submit" value="Enviar"></p>
+    </div>
+</form>
+<div id="resultado"></div>
+ 
+<script>
+
+document.querySelector("input[type=submit]").addEventListener("click",enviar);
+
+var resultadoEncuesta=[];
+ 
+var totalPreguntas=2;
+
+inicializarArrayResultados();
+ 
+var totalEncuestas=0;
+ 
+function enviar(e) {
+     var preguntas=document.querySelectorAll("input[type=radio]:checked");
+
+    if(preguntas.length==totalPreguntas) {
+ 
+        totalEncuestas++;
+        document.getElementById("error").innerHTML="";
+ 
+        preguntas.forEach(function(pregunta) {
+
+            resultadoEncuesta[pregunta.name][pregunta.value]++;
+ 
+            pregunta.checked=false;
+        });
+        mostrarResultado();
+    }else{
+        document.getElementById("error").innerHTML="Selecciona todos los valores...";
+    }
+    e.preventDefault();
+}
+ 
+function inicializarArrayResultados() {
+    for(var i=1;i<=totalPreguntas;i++) {
+        resultadoEncuesta["p"+i]=[0,0];
+    }
+}
+function mostrarResultado() {
+    resultado="";
+    resultado+="<h3>De un total de "+totalEncuestas+" encuestados...</h3>";
+    for(var i=1;i<=totalPreguntas;i++) {
+        resultado+="<div>pregunta "+i+" - Si: "+resultadoEncuesta["p"+i][0]+" No: "+resultadoEncuesta["p"+i][1]+"</div>";
+    }
+    document.getElementById("resultado").innerHTML=resultado;
+}
+</script>
+ 
+</body>
+    
+      <audio src="musica.mp3" controls autoplay loop></audio>
+    <a href="javascript:history.back()"><img src="back.png" height="35" width="35" alt="Botón"></a>
+      
+    </html>
