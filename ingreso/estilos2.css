@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ultra&display=swap');
+
+
+h1{
+    text-align: center;
+    font-family: 'Ultra', serif;
+    color: #ADFF2F;
+}
+
+
+
+
+h2,h3,h4,h5,h6,h7{
+font-family: 'Gochi Hand', cursive;
+letter-spacing: 1.5px;  
+color: #00BFFF;
+}
+
+body {
+  margin: 10;
+  padding: 0;
+  background-image: url("https://mcdn.wallpapersafari.com/medium/51/28/d0FVR5.png");    
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
